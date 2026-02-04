@@ -1,3 +1,19 @@
+function initFavicon() {
+    const head = document.head || document.getElementsByTagName('head')[0];
+    if (!head) return;
+
+    let link = document.querySelector('link[rel="icon"]');
+
+    if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/png';
+        head.appendChild(link);
+    }
+
+    link.href = 'img/HYDRONIX.png';
+}
+
 function initNavigation() {
     const navLinks = document.querySelectorAll('.navbar a');
     
@@ -75,6 +91,7 @@ function initScrollAnimations() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    initFavicon();
     initNavigation();
     initSmoothScroll();
     initScrollAnimations();
